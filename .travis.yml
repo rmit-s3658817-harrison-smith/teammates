@@ -41,9 +41,9 @@ before_script:
   - cd $TRAVIS_BUILD_DIR
   - gcloud -q components install app-engine-java
 
-  - ./gradlew createConfigs testClasses
+  #- ./gradlew createConfigs testClasses
   - ./gradlew downloadStaticAnalysisTools
-  - ./gradlew lint --continue
+  #- ./gradlew lint --continue
   - npm install
   - npm run lint
 
@@ -51,7 +51,7 @@ install: true
 script:
   - npm run build
   - ./gradlew appengineStart
-  - ./gradlew ciTests
+ # - ./gradlew ciTests
 
 after_failure:
   - gem install gist
